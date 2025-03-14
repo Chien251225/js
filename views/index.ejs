@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Shop</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header') %>
+
+    <div class="container">
+        <h2>Tree Shop</h2>
+        <form action="/add" method="POST">
+            <label>Tree Name</label>
+            <input type="text" name="treename" required>
+
+            <label>Description</label>
+            <textarea name="description" required></textarea>
+
+            <label>Image</label>
+            <input type="text" name="image">
+
+            <button type="submit">Add</button>
+            <button type="submit" formaction="/reset">Reset</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+            </tr>
+            <% trees.forEach((tree, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= tree.treename %></td>
+                    <td><img src="<%= tree.image %>" width="50"></td>
+                    <td><%= tree.description %></td>
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+
+    <%- include('footer') %>
+</body>
+</html>
