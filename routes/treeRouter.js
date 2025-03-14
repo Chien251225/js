@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Tree = require("../Model/treeModel.js");
 
-// Lấy danh sách tất cả cây
+// Lấy danh sách cây
 router.get("/", async (req, res) => {
   try {
     const trees = await Tree.find();
@@ -19,7 +19,7 @@ router.post("/add", async (req, res) => {
     return res.status(400).send("Tên cây và mô tả là bắt buộc");
   }
   try {
-    await Tree.create({ treename, description, image });
+    await Tree.create({ treename, description, image: image || "default.jpg" });
     res.redirect("/");
   } catch (error) {
     res.status(500).send("Lỗi khi thêm cây mới");

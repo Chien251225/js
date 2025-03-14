@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <%- include('header') %>
 
     <div class="container">
         <h2>Tree Shop</h2>
@@ -18,31 +18,42 @@
             <label>Description</label>
             <textarea name="description" required></textarea>
 
-            <label>Image</label>
+            <label>Image URL</label>
             <input type="text" name="image">
 
             <button type="submit">Add</button>
             <button type="submit" formaction="/reset">Reset</button>
         </form>
 
-        <table>
+        <table border="1">
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>Description</th>
+                <th>Actions</th>
             </tr>
             <% trees.forEach((tree, index) => { %>
                 <tr>
                     <td><%= index + 1 %></td>
                     <td><%= tree.treename %></td>
-                    <td><img src="<%= tree.image %>" width="50"></td>
+                    <td>
+                        <% if (tree.image) { %>
+                            <img src="<%= tree.image %>" width="50">
+                        <% } else { %>
+                            No image
+                        <% } %>
+                    </td>
                     <td><%= tree.description %></td>
+                    <td>
+                        <form action="/delete/<%= tree._id %>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             <% }); %>
         </table>
     </div>
 
-    <%- include('footer') %>
 </body>
 </html>
