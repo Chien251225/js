@@ -1,26 +1,40 @@
- body {
+body {
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #4CAF50;
-    padding: 10px;
+    background-color: #28a745;
+    padding: 15px;
     text-align: center;
     color: white;
+    font-size: 1.5rem;
 }
 
 nav a {
-    margin: 0 10px;
+    margin: 0 15px;
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    max-width: 900px;
+    margin: 30px auto;
     padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: bold;
 }
 
 table {
@@ -30,17 +44,32 @@ table {
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #ddd;
 }
 
-th, td {
+th {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+}
+
+td {
     padding: 10px;
-    text-align: left;
 }
 
 img {
-    max-width: 100px;
-} 
+    max-width: 80px;
+    border-radius: 5px;
+}
 
+button {
+    margin-top: 5px;
+}
 
-
+footer {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
